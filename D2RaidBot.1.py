@@ -7,13 +7,11 @@ prefix = "!"
 
 client = commands.Bot(command_prefix=prefix)
 
-
 @client.event
 async def on_ready():
     print("D2 Raidbot online")
     print("Name: {}".format(client.user.name))
     print("ID: {}".format(client.user.id))
-
 
 @client.command(pass_context=True)
 async def texttest(cxt):
@@ -22,7 +20,6 @@ async def texttest(cxt):
 Raid1 = []
 Raid2 = []
 
-
 @client.command(pass_context=True)
 async def commands(cxt):
     await client.say('!raidcheck')
@@ -30,7 +27,6 @@ async def commands(cxt):
     await client.say('!signupsunday <PlayerNameHere>')
     await client.say('!wipethursday')
     await client.say('!wipesunday')
-
 
 @client.command(pass_context=True)
 async def raidcheck(cxt):
@@ -45,14 +41,12 @@ async def raidcheck(cxt):
     else:
         await client.say('Seriously? No one signed up the Sunday raid?!')
 
-
 @client.command(pass_context=True)
 async def signupthursday(cxt, args):
     await client.say('Adding ' + args + ' to the Thursday raid list')
     Raid1.append(args)
     await client.say(Raid1)
     return Raid1
-
 
 @client.command(pass_context=True)
 async def signupsunday(cxt, args):
@@ -61,7 +55,6 @@ async def signupsunday(cxt, args):
     await client.say(Raid2)
     return Raid2
 
-
 @client.command(pass_context=True)
 async def wipethursday(cxt):
     await client.say('Thursday raid list be getting wiped... Back to front...')
@@ -69,14 +62,12 @@ async def wipethursday(cxt):
     await client.say('Wipe complete. With Charmin Ultra...')
     return Raid1
 
-
 @client.command(pass_context=True)
 async def wipesunday(cxt):
     await client.say('Sunday raid list... Is gone-arrhea now. Good Job!')
     del Raid2[:]
     await client.say('Wipe complete. With 1 Ply... You know that hurt!')
     return Raid2
-
 
 @client.command(pass_context=True)
 async def supertopsecretcommand(cxt):
